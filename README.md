@@ -1,5 +1,10 @@
 # vuepassword
 
+## Download repository
+```
+git clone https://github.com/rodukov/vuepassword && cd vuepassword
+```
+
 ## Project setup
 ```
 npm install
