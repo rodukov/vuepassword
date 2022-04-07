@@ -1,6 +1,12 @@
 <template>
 <div class="homepassword">
 
+  <div><input type="range" min=8 max=45 v-model="vuelength"><span>{{ vuelength }}</span></div>
+  <div><input type="checkbox" v-model="include['numbers']"><span>Include numbers</span></div>
+  <div><input type="checkbox" v-model="include['letters']"><span>Include letters</span></div>
+  <div><input type="checkbox" v-model="include['symbols']"><span>Include symbols</span></div>
+  {{ include }}
+  <button v-on:click="generate">Generate!</button>
   <p>Password: <span style="color: green; text-decoration: underline; ">{{ this.password }}</span></p>
 </div>
 </template>
@@ -9,22 +15,31 @@
 export default {
   name: 'Home',
   data() {
-    return { 
-      vueletters: "qwertyuiopasdfghjklzxcvbnm1234567890[]{}\|/:;',./<>?~`!@#$%^&*()_+-=",
-      vuelength: 35,
-      password: ""
+    return {
+      passwordbasic: {"numbers": "1234567890", "letters": "qwertyuiopasdfghjklzxcvbnm", "symbols": "[]{}\|/:;',./<>?~`!@#$%^&*()_+-="},
+      vuelength: 25,
+      password: "",
+      include: { "numbers": true, "letters": true, "symbols": true }
     }
   },
   mounted() {
-    var output = "";
-    var len = this.vuelength;
-
-    for(var i = 0; i < len; i++) {
-      output += this.vueletters[this.vuepassword(this.vueletters.length)];
-    }
-    this.password = output;
+    this.generate()
   },
-  methods: { // [Vue] Functions are stored there
+  methods: {
+    generate() { 
+      var output = "";
+      var len = this.vuelength;
+      var buildbasic = "";
+      if(this.include["numbers"]) { buildbasic += this.passwordbasic["numbers"] }
+      if(this.include["letters"]) { buildbasic += this.passwordbasic["letters"] }
+      if(this.include["symbols"]) { buildbasic += this.passwordbasic["symbols"] }
+
+      for(var i = 0; i < len; i++) {
+        var random = this.vuepassword(buildbasic.length);
+        output += buildbasic[random];
+      }
+      this.password = output;
+    },
     vuepassword(maximum) { return Math.floor( maximum * Math.random() ) } // [VuePassword] Generate new value
   }
 }
