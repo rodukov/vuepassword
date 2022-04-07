@@ -5,7 +5,6 @@
   <div><input type="checkbox" v-model="include['numbers']"><span>Include numbers</span></div>
   <div><input type="checkbox" v-model="include['letters']"><span>Include letters</span></div>
   <div><input type="checkbox" v-model="include['symbols']"><span>Include symbols</span></div>
-  {{ include }}
   <button v-on:click="generate">Generate!</button>
   <p>Password: <span style="color: green; text-decoration: underline; ">{{ this.password }}</span></p>
 </div>
