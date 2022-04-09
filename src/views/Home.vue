@@ -2,21 +2,21 @@
 <div class="homepassword">
 
 <div class="vuepassword-component">
-  <div><p style="text-align: center; margin: 0;"><img src="../assets/logo.png" style="width: 32px; height: 32px;"></p><p style="text-align: center; margin-top: 0%; font-family: Karla; font-size: 29px;">Vue Password</p></div>
+  <div><p style="text-align: center; margin: 0;"><img src="../assets/logo.png" style="width: 32px; height: 32px;"></p><p style="text-align: center; margin-top: 0%; font-family: Karla; font-size: 29px; margin-bottom: 8px; ">Vue Password</p></div>
   <p style="text-align: center; font-family: Karla; margin-top: 0;">{{ phraseToPage }}</p>
 
   <div class="config" style=" display: inline-block; margin: auto; ">
-    <label class="container checkbox-text">Include numbers<input class="checkbox" type="checkbox" v-model="include['numbers']" @change="generate"><span class="checkmark"></span></label>
+    <label class="container checkbox-text" >Include numbers<input class="checkbox" type="checkbox" v-model="include['numbers']" @change="generate"><span class="checkmark"></span></label>
     <label class="container checkbox-text">Include letters<input class="checkbox" type="checkbox" v-model="include['letters']" @change="generate"><span class="checkmark"></span></label>
     <label class="container checkbox-text">Include symbols<input class="checkbox" type="checkbox" v-model="include['symbols']" @change="generate"><span class="checkmark"></span></label>
     <!-- OLD Markup div><input class="checkbox" type="checkbox" v-model="include['numbers']" @change="generate"><span class="checkbox-text">Include numbers</span></div>
     <div><input class="checkbox" type="checkbox" v-model="include['letters']" @change="generate"><span class="checkbox-text">Include letters</span></div>
     <div><input class="checkbox" type="checkbox" v-model="include['symbols']" @change="generate"><span class="checkbox-text">Include symbols</span></div-->
-    <div><input class="slider" type="range" min=8 max=45 v-model="vuelength" @change="generate"><span style="font-family: Karla;">{{ vuelength }}</span></div>
+    <div><input class="slider" type="range" min=8 max=45 v-model="vuelength" @change="generate"><span style="font-family: Karla; color: #535353;">{{ vuelength }}</span></div>
   </div>
 
   <div><p style="text-align: center;"><button v-on:click="generate" class="button">Give me another password</button></p></div>
-  <div><p class="password-label">Password: <span class="password-answer">{{ this.password }}</span></p></div>
+  <div><p class="password-label" ><span v-show="false">Password: </span><span class="password-answer">{{ this.password }}</span></p></div>
 </div>
 </div>
 </template>
@@ -82,24 +82,26 @@ export default {
   background: white;
   border: 1px solid rgb(202, 202, 202);
   border-radius: 7px;
+  box-shadow: 0px 0px 100px rgb(228, 228, 228);
 
 }
 .button {
   padding: 3%;
   color: white;
+  background: #40B782;
   border: none;
   border-radius: 3px;
   font-family: 'Raleway', cursive;
   font-size: 15px;
   font-family: 'Karla', sans-serif;
   transition: 0.25s;
+}
+.button:hover { border-radius: 8px; transition: 0.01s;
   /* background changing */
-  background: linear-gradient(125deg, #3b9e1c, rgb(28, 156, 103), #1665c1, rgb(74, 9, 196));
+  background: linear-gradient(125deg, #40B782, rgb(77, 206, 152), rgb(114, 138, 216));
   background-size: 400% 400%;
   animation: BackgroundGradient 5s ease infinite;
 }
-.button:hover { border-radius: 8px; transition: 0.01s; }
-/* .button:active { background : #2ea543; box-shadow: 0px 0px 20px #2ea543;} */
 
 @keyframes BackgroundGradient {
   0% {background-position: 0% 50%;}
@@ -119,7 +121,7 @@ export default {
   padding-left: 35px;
   margin-bottom: 12px;
   cursor: pointer;
-  font-size: 22px;
+  font-size: 18px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -129,6 +131,7 @@ export default {
   font-family: Karla;
   font-size: 19px;
   margin-top: 5%;
+  text-align: center;
 }
 
 .password-answer {
@@ -174,7 +177,7 @@ export default {
 
 /* When the checkbox is checked, add a blue background */
 .container input:checked ~ .checkmark {
-  background-color: #30a561a4;
+  background-color: #40B782;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
@@ -225,18 +228,23 @@ export default {
 /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
 .slider::-webkit-slider-thumb {
   width: 25px; 
-  height: 15px;
-  background: #04AA6D;
+  height: 25px;
+  background: #40B782;
   cursor: pointer; 
   border: none;
 }
 
 .slider::-moz-range-thumb {
   width: 25px; 
-  height: 15px;
-  background: linear-gradient(245deg, #04AA6D, #10ccad);
+  height: 25px;
+  background: #40B782;
   cursor: pointer;
   border: none;
+  animation: vuepassword 3s ease infinite;
 }
 
+@keyframes vuepassword {
+  0% { box-shadow: 0px 0px 1px rgb(4, 170, 109); }
+  100% { box-shadow: 0px 0px 50px rgb(4, 170, 109);  }
+}
 </style>
