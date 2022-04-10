@@ -5,13 +5,10 @@
   <div><p style="text-align: center; margin: 0;"><img src="../assets/logo.png" style="width: 32px; height: 32px;"></p><p style="text-align: center; margin-top: 0%; font-family: Karla; font-size: 29px; margin-bottom: 8px; ">Vue Password</p></div>
   <p style="text-align: center; font-family: Karla; margin-top: 0;">{{ phraseToPage }}</p>
 
-  <div class="config" style=" display: inline-block; margin: auto; ">
+  <div class="config">
     <label class="container checkbox-text" >Include numbers<input class="checkbox" type="checkbox" v-model="include['numbers']" @change="generate"><span class="checkmark"></span></label>
     <label class="container checkbox-text">Include letters<input class="checkbox" type="checkbox" v-model="include['letters']" @change="generate"><span class="checkmark"></span></label>
     <label class="container checkbox-text">Include symbols<input class="checkbox" type="checkbox" v-model="include['symbols']" @change="generate"><span class="checkmark"></span></label>
-    <!-- OLD Markup div><input class="checkbox" type="checkbox" v-model="include['numbers']" @change="generate"><span class="checkbox-text">Include numbers</span></div>
-    <div><input class="checkbox" type="checkbox" v-model="include['letters']" @change="generate"><span class="checkbox-text">Include letters</span></div>
-    <div><input class="checkbox" type="checkbox" v-model="include['symbols']" @change="generate"><span class="checkbox-text">Include symbols</span></div-->
     <div><input class="slider" type="range" min=8 max=45 v-model="vuelength" @change="generate"><span style="font-family: Karla; color: #535353;">{{ vuelength }}</span></div>
   </div>
 
@@ -240,11 +237,13 @@ export default {
   background: #40B782;
   cursor: pointer;
   border: none;
-  animation: vuepassword 3s ease infinite;
 }
 
+.slider::-moz-range-thumb:hover {
+  animation: vuepassword 0.9s ease infinite;
+}
 @keyframes vuepassword {
   0% { box-shadow: 0px 0px 1px rgb(4, 170, 109); }
-  100% { box-shadow: 0px 0px 50px rgb(4, 170, 109);  }
+  100% { box-shadow: 0px 0px 40px rgb(4, 170, 109);  }
 }
 </style>
