@@ -13,7 +13,8 @@
   </div>
 
   <div><p style="text-align: center;"><button v-on:click="generate" class="button">Give me another password</button></p></div>
-  <div><p class="password-label" ><span v-show="false">Password: </span><span class="password-answer">{{ this.password }}</span></p></div>
+  <div><p class="password-label" ><span v-show="false">Password: </span><span class="password-answer" v-on:click="copy_to_clipboard">{{ this.password }}</span></p></div>
+
 </div>
 </div>
 </template>
@@ -42,6 +43,10 @@ export default {
     
   },
   methods: {
+    copy_to_clipboard(){
+      navigator.clipboard.writeText(this.password);
+
+    },
     select_phrase() {
       this.phraseToPage = this.emo[this.vuepassword(this.emo.length)] + ' ' + this.phrase[this.vuepassword(this.phrase.length)];
     },
@@ -70,8 +75,7 @@ export default {
 .homepassword { margin: 1%; }
 .vuepassword-component {
   /* Aligment */
-  width: 500px;
-  padding: 5%;
+  padding: 50px;
   margin-left: auto;
   margin-right: auto;
   margin: auto;
@@ -245,5 +249,15 @@ export default {
 @keyframes vuepassword {
   0% { box-shadow: 0px 0px 1px rgb(4, 170, 109); }
   100% { box-shadow: 0px 0px 40px rgb(4, 170, 109);  }
+}
+
+@media screen and (min-width: 570px) {
+
+  .vuepassword-component { width: 500px;}
+}
+
+@media screen and (max-width: 570px) {
+  .homepassword { margin: 0; }
+  .vuepassword-component { border: none; box-shadow: none; }
 }
 </style>
