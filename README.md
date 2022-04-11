@@ -1,10 +1,13 @@
 # vuepassword
 
-🔻 Demonstration: https://rodukov.github.io/
+🔻 Vuepassword is a simple password generator written in Vue.js. Here you can choose the length of the password. What symbols to use for generation. The password itself is generated on the user (client) side, so it has nothing to do with the server.
 
 ## About Vuepassword
-🔺 Vuepassword is a simple password generator written in Vue.js. Here you can choose the length of the password. What symbols to use for generation. The password itself is generated on the user (client) side, so it has nothing to do with the server.<br>
-🔺 <strong>You can copy the generated password to clipboard.</strong>
+🔺 Demonstration: https://rodukov.github.io/<br>
+🔺 Using passwords obtained with vue password is absolutely safe<br>
+🔺 <strong>You can copy the generated password to clipboard.</strong><br>
+🔺 It has an adaptive design.<br>
+🔺 You can look at and change the code of the program as you like.
 
 ## Installing Vuepassword on the local computer
 ### Download repository
