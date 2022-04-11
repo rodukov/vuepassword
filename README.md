@@ -4,9 +4,9 @@
 
 ## About Vuepassword
 🔺 Demonstration: https://rodukov.github.io/<br>
-🔺 Using passwords obtained with vue password is absolutely safe<br>
-🔺 <strong>You can copy the generated password to clipboard.</strong><br>
-🔺 It has an adaptive design.<br>
+🔺 Using passwords obtained with vue password is absolutely safe;<br>
+🔺 <strong>You can copy the generated password to clipboard;</strong><br>
+🔺 It has an adaptive design;<br>
 🔺 You can look at and change the code of the program as you like.
 
 ## Installing Vuepassword on the local computer
