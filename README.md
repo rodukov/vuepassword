@@ -7,7 +7,7 @@
 🔺 Using passwords obtained with vue password is absolutely safe;<br>
 🔺 <strong>You can copy the generated password to clipboard;</strong><br>
 🔺 It has an adaptive design;<br>
-🔺 You can look at and change the code of the program as you like.
+🔺 You can look at and change the code of the program as you like.<br>
 🔺 If project gets 5 start i will move code to react.js
 
 ## Installing vuepassword on the local computer
