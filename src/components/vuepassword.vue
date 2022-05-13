@@ -13,7 +13,7 @@
   </div>
 
   <div><p style="text-align: center;"><button v-on:click="generate" class="button">Give me another password</button></p></div>
-  <div><p class="password-label" ><span v-show="false">Password: </span><span class="password-answer" v-on:click="copy_to_clipboard">{{ this.password }}</span></p></div>
+  <div style="overflow: auto;"><p class="password-label" ><span v-show="false">Password: </span><span class="password-answer" v-on:click="copy_to_clipboard">{{ this.password }}</span></p></div>
 
 </div>
 </div>
